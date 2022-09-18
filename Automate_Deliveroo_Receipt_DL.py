@@ -16,7 +16,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-from login_config import *
+from login_config import *        # A dictionary holding your account credentials
 
 def login_deliveroo(driver, account_dict):
     driver.get('https://deliveroo.co.uk/login?redirect=%2F')
@@ -48,7 +48,7 @@ def login_deliveroo(driver, account_dict):
 
 if __name__ == '__main__':
     # environment setup
-    OUTPUT_MASTER_FOLDER = r'C:\Users\user\Dropbox\Internship\GS\In job\Expensees'
+    OUTPUT_MASTER_FOLDER = r'C:\PATH\TO\OUTPUT\DIR'
     TODAY = datetime.datetime.today().date()
     OUTPUT_FOLDER = f'{TODAY.strftime("%B")} {TODAY.strftime("%Y")}'
     if not os.path.isdir(f'{OUTPUT_MASTER_FOLDER}\\{OUTPUT_FOLDER}'):
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     options.add_experimental_option("prefs", prefs)
     # options.add_argument('--log-level 3') # -> do not print logging info to console
 
-    driver = webdriver.Chrome(executable_path=r'C:\Users\user\PycharmProjects\Portfolio_analysis\chromedriver.exe',
+    driver = webdriver.Chrome(executable_path=r'C:\path_to_chromedriver\chromedriver.exe',
                               chrome_options=options)
     time.sleep(3)
     # use function to login Deliveroo
